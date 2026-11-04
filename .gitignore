@@ -1,2 +1,23 @@
 # Configuration locale contenant les identifiants
 backend/src/main/resources/application.yml
+# IntelliJ IDEA
+.idea/
+**/.idea/
+
+# Maven
+**/target/
+
+# Angular
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Flutter
+**/.dart_tool/
+**/build/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+
+# Environnement
+.env
+.env.*

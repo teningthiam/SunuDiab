@@ -9,7 +9,7 @@ class TtsService {
     try {
       if (!_ready) {
         await _tts.setLanguage('fr-FR');
-        await _tts.setSpeechRate(0.45);
+        await _tts.setSpeechRate(0.6);
         _ready = true;
       }
       await _tts.stop();
