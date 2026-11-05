@@ -13,7 +13,9 @@ import '../providers/settings_provider.dart';
 import '../widgets/common.dart';
 import 'advice_screen.dart';
 import 'appointments_screen.dart';
+import '../providers/messages_provider.dart';
 import 'health_profile_screen.dart';
+import 'messages_screen.dart';
 import 'treatments_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -64,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
               SectionTitle(ctx.t('choose_doctor')),
               ...list.map(
-                (m) => ListTile(
+                    (m) => ListTile(
                   leading: const Icon(Icons.medical_services_outlined),
                   title: Text('Dr. ${m.nomComplet}'),
                   subtitle: Text(
@@ -203,6 +205,7 @@ class ProfileScreen extends StatelessWidget {
     final settings = context.watch<SettingsProvider>();
     final online = context.watch<ConnectivityProvider>().online;
     final p = data.profil;
+    final unread = context.watch<MessagesProvider>().unread;
 
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -308,10 +311,10 @@ class ProfileScreen extends StatelessWidget {
                   trailing: p.infirmierRelaisTelephone == null
                       ? null
                       : IconButton.filledTonal(
-                          onPressed: () =>
-                              callNumber(context, p.infirmierRelaisTelephone!),
-                          icon: const Icon(Icons.call),
-                        ),
+                    onPressed: () =>
+                        callNumber(context, p.infirmierRelaisTelephone!),
+                    icon: const Icon(Icons.call),
+                  ),
                 ),
             ],
           ),
@@ -335,7 +338,7 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
         ...(p?.contacts ?? <Contact>[]).map(
-          (c) => AppCard(
+              (c) => AppCard(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             child: Row(
               children: [
@@ -366,13 +369,13 @@ class ProfileScreen extends StatelessWidget {
                 IconButton(
                   onPressed: online
                       ? () async {
-                          try {
-                            await data.supprimerContact(c.id);
-                          } catch (e) {
-                            if (context.mounted)
-                              toast(context, errText(context, e));
-                          }
-                        }
+                    try {
+                      await data.supprimerContact(c.id);
+                    } catch (e) {
+                      if (context.mounted)
+                        toast(context, errText(context, e));
+                    }
+                  }
                       : null,
                   icon: const Icon(
                     Icons.delete_outline,
@@ -384,6 +387,11 @@ class ProfileScreen extends StatelessWidget {
           ),
         ),
         SectionTitle(context.t('my_health')),
+        _NavTile(
+          icon: Icons.chat_bubble_outline,
+          title: context.t('messages') + (unread > 0 ? ' ($unread)' : ''),
+          page: const MessagesScreen(),
+        ),
         _NavTile(
           icon: Icons.assignment_ind_outlined,
           title: context.t('health_profile'),
@@ -486,9 +494,9 @@ class ProfileScreen extends StatelessWidget {
                 data.lastSync == null
                     ? context.t('never_synced')
                     : context.t('last_sync', {
-                        't':
-                            '${data.lastSync!.day}/${data.lastSync!.month} ${data.lastSync!.hour.toString().padLeft(2, '0')}:${data.lastSync!.minute.toString().padLeft(2, '0')}',
-                      }),
+                  't':
+                  '${data.lastSync!.day}/${data.lastSync!.month} ${data.lastSync!.hour.toString().padLeft(2, '0')}:${data.lastSync!.minute.toString().padLeft(2, '0')}',
+                }),
                 style: const TextStyle(color: AppColors.muted),
               ),
               const SizedBox(height: 10),
@@ -499,14 +507,14 @@ class ProfileScreen extends StatelessWidget {
                 onPressed: data.syncing
                     ? null
                     : () async {
-                        if (!online) {
-                          toast(context, context.t('offline_banner'));
-                          return;
-                        }
-                        final err = await data.syncNow();
-                        if (context.mounted)
-                          toast(context, err ?? context.t('sync_done'));
-                      },
+                  if (!online) {
+                    toast(context, context.t('offline_banner'));
+                    return;
+                  }
+                  final err = await data.syncNow();
+                  if (context.mounted)
+                    toast(context, err ?? context.t('sync_done'));
+                },
                 icon: const Icon(Icons.sync),
                 label: Text(context.t('sync_now')),
               ),

@@ -39,7 +39,7 @@ const Map<String, String> kFr = {
   "create_account": "Créer un compte",
   "privacy_note": "Vos données de santé sont confidentielles. Vous choisissez de les partager ou non avec votre médecin.",
   "login_sub":
-      "Entrez votre numéro de téléphone (ou e-mail) et votre mot de passe.",
+  "Entrez votre numéro de téléphone (ou e-mail) et votre mot de passe.",
   "identifier": "Téléphone ou e-mail",
   "password": "Mot de passe",
   "required": "Champ obligatoire",
@@ -93,7 +93,7 @@ const Map<String, String> kFr = {
   "see_all": "Tout voir",
   "listen": "Écouter",
   "audio_wo_soon":
-      "L'audio en wolof arrive bientôt (enregistrements à faire valider).",
+  "L'audio en wolof arrive bientôt (enregistrements à faire valider).",
   "need_connection": "Une connexion internet est nécessaire pour cette action.",
   "err_network": "Pas de connexion internet. Réessayez plus tard.",
   "err_session": "Session expirée. Reconnectez-vous.",
@@ -102,13 +102,13 @@ const Map<String, String> kFr = {
   "complete_profile": "Complétez votre profil de santé (taille, poids...)",
   "last_glycemia": "Dernière glycémie",
   "no_measure_yet":
-      "Aucune mesure pour le moment. Ajoutez votre première glycémie.",
+  "Aucune mesure pour le moment. Ajoutez votre première glycémie.",
   "add_glycemia": "Noter ma glycémie",
   "target_range": "Cible : {a} – {b} g/L",
   "evolution_7d": "Évolution sur 7 jours",
   "in_target_pct": "{n} % dans la cible",
   "speak_glycemia":
-      "Votre dernière glycémie est de {v} gramme par litre. Statut : {s}.",
+  "Votre dernière glycémie est de {v} gramme par litre. Statut : {s}.",
   "no_data_chart": "Pas encore de données",
   "quick_actions": "Actions rapides",
   "risk_test": "Test de risque",
@@ -164,7 +164,7 @@ const Map<String, String> kFr = {
   "save_measure": "Enregistrer la mesure",
   "will_sync_now": "Sera envoyé au serveur dès l'enregistrement.",
   "saved_offline_hint":
-      "Sauvegarde hors ligne : envoi automatique au retour du réseau.",
+  "Sauvegarde hors ligne : envoi automatique au retour du réseau.",
   "risk_intro": "Ce questionnaire de 8 questions estime votre risque de développer un diabète de type 2 dans les 10 prochaines années. Il fonctionne sans connexion internet.",
   "risk_disclaimer": "Ce test est une estimation, pas un diagnostic. Seule une mesure de la glycémie à jeun ou de l'HbA1c, interprétée par un médecin, confirme un diabète.",
   "last_result": "Dernier résultat",
@@ -184,9 +184,9 @@ const Map<String, String> kFr = {
   "q3_hint": "Mesurez au niveau du nombril, sans serrer.",
   "waist": "Tour de taille",
   "q4_title":
-      "Pratiquez-vous une activité physique d'au moins 30 minutes par jour ?",
+  "Pratiquez-vous une activité physique d'au moins 30 minutes par jour ?",
   "q4_hint":
-      "Marche rapide, travaux ménagers, vélo, travail des champs, sport.",
+  "Marche rapide, travaux ménagers, vélo, travail des champs, sport.",
   "q5_title": "Mangez-vous des légumes ou des fruits tous les jours ?",
   "q5_hint": "Chou, carotte, gombo, navet, mangue, orange...",
   "q6_title": "Prenez-vous un traitement contre l'hypertension ?",
@@ -231,7 +231,7 @@ const Map<String, String> kFr = {
   "reco_ACTIVITE_PHYSIQUE": "Visez au moins 30 minutes d'activité physique par jour (marche rapide, travaux, sport).",
   "reco_PERDRE_POIDS": "Une perte de poids, même modeste, réduit nettement le risque de diabète.",
   "reco_SURVEILLER_TENSION":
-      "Faites contrôler régulièrement votre tension artérielle.",
+  "Faites contrôler régulièrement votre tension artérielle.",
   "reco_CONSULTER_GLYCEMIE_JEUN": "Faites mesurer votre glycémie à jeun dans un poste de santé ou un laboratoire et parlez-en à un médecin.",
   "book_with_doctor": "Prendre rendez-vous avec un médecin",
   "ask_assistant": "Poser une question à l'assistant",
@@ -244,7 +244,7 @@ const Map<String, String> kFr = {
   "chat_sug3": "Que manger aujourd'hui ?",
   "chat_hint": "Posez votre question...",
   "chat_offline_short":
-      "Connectez-vous à internet pour discuter avec l'assistant.",
+  "Connectez-vous à internet pour discuter avec l'assistant.",
   "urgent": "URGENT",
   "offline_tips": "Conseils disponibles hors ligne",
   "tip_hypo_title": "Hypoglycémie (glycémie basse)",
@@ -281,7 +281,7 @@ const Map<String, String> kFr = {
   "last_taken": "Dernière prise : {t}",
   "advice": "Conseils",
   "no_tips":
-      "Aucun conseil téléchargé. Connectez-vous une fois pour les recevoir.",
+  "Aucun conseil téléchargé. Connectez-vous une fois pour les recevoir.",
   "file_no": "Dossier",
   "diabetes_AUCUN": "Pas de diagnostic",
   "diabetes_PREDIABETE": "Prédiabète",
@@ -306,7 +306,7 @@ const Map<String, String> kFr = {
   "wo_partial": "La traduction en wolof est en cours : les textes non traduits restent en français.",
   "share_record": "Partager mon dossier avec mon médecin",
   "share_record_sub":
-      "Sans partage, votre médecin ne peut pas voir vos données.",
+  "Sans partage, votre médecin ne peut pas voir vos données.",
   "sms_reminders": "Rappels de glycémie par SMS",
   "logout": "Se déconnecter",
   "logout_q": "Voulez-vous vous déconnecter ?",
@@ -325,6 +325,14 @@ const Map<String, String> kFr = {
   "server_fail": "Serveur injoignable. Vérifiez l'adresse, le Wi-Fi et que le backend est démarré.",
   "server_default": "Par défaut",
   "server_current": "Adresse actuelle",
+  "messages": "Messages",
+  "messages_empty":
+  "Aucun message pour le moment. Écrivez à votre équipe de soins.",
+  "messages_no_contact": "Choisissez d'abord un médecin référent dans votre profil pour pouvoir échanger des messages.",
+  "messages_offline":
+  "Connectez-vous à internet pour lire et envoyer des messages.",
+  "message_hint": "Écrire un message...",
+  "messages_new": "Vous avez {n} nouveau(x) message(s)",
 };
 
 const Map<String, String> kWo = {

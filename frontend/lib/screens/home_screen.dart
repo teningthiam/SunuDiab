@@ -12,7 +12,9 @@ import '../providers/settings_provider.dart';
 import '../providers/shell_nav.dart';
 import '../widgets/common.dart';
 import '../widgets/glycemia_chart.dart';
+import '../providers/messages_provider.dart';
 import 'add_measure_screen.dart';
+import 'messages_screen.dart';
 import 'advice_screen.dart';
 import 'appointments_screen.dart';
 import 'health_profile_screen.dart';
@@ -78,8 +80,8 @@ class HomeScreen extends StatelessWidget {
                         data.lastSync == null
                             ? context.t('never_synced')
                             : context.t('synced_ago', {
-                                't': timeAgo(context, data.lastSync!),
-                              }),
+                          't': timeAgo(context, data.lastSync!),
+                        }),
                         style: const TextStyle(
                           color: AppColors.muted,
                           fontSize: 12.5,
@@ -92,6 +94,31 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          if (context.watch<MessagesProvider>().unread > 0)
+            AppCard(
+              color: AppColors.primarySoft,
+              onTap: () => Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (_) => const MessagesScreen())),
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.mark_chat_unread_outlined,
+                    color: AppColors.primary,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Text(
+                      context.t('messages_new', {
+                        'n': '${context.watch<MessagesProvider>().unread}',
+                      }),
+                      style: const TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                  ),
+                  const Icon(Icons.chevron_right),
+                ],
+              ),
+            ),
           if (data.pendingCount > 0)
             AppCard(
               color: AppColors.orangeSoft,
@@ -341,9 +368,9 @@ class _LastGlycemiaCard extends StatelessWidget {
     final inTarget = week.isEmpty
         ? 0
         : (week.where((x) => x.statut == GStatus.normal).length *
-                  100 /
-                  week.length)
-              .round();
+        100 /
+        week.length)
+        .round();
     return AppCard(
       accent: statusColor(st),
       child: Column(

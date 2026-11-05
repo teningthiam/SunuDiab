@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Téléphone réel : flutter run --dart-define=API_URL=http://192.168.1.20:8080
 const String kBaseUrl = String.fromEnvironment(
   'API_URL',
-  defaultValue: 'http://192.168.1.7:8080',
+  defaultValue: 'http://192.168.1.14:8080',
 );
 
 /// Adresse du serveur modifiable depuis l'app (appui long sur le logo de l'écran d'accueil).

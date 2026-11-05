@@ -12,6 +12,7 @@ import 'providers/auth_provider.dart';
 import 'providers/chat_provider.dart';
 import 'providers/connectivity_provider.dart';
 import 'providers/data_provider.dart';
+import 'providers/messages_provider.dart';
 import 'providers/settings_provider.dart';
 import 'providers/shell_nav.dart';
 
@@ -30,6 +31,7 @@ Future<void> main() async {
   api.onSessionExpired = auth.sessionExpired;
   final data = DataProvider(api, connectivity, auth);
   final chat = ChatProvider(api, connectivity);
+  final messages = MessagesProvider(api, connectivity, auth);
   unawaited(auth.init());
 
   runApp(
@@ -41,6 +43,7 @@ Future<void> main() async {
         ChangeNotifierProvider<AuthProvider>.value(value: auth),
         ChangeNotifierProvider<DataProvider>.value(value: data),
         ChangeNotifierProvider<ChatProvider>.value(value: chat),
+        ChangeNotifierProvider<MessagesProvider>.value(value: messages),
         ChangeNotifierProvider<ShellNav>(create: (_) => ShellNav()),
       ],
       child: const SunuDiabApp(),

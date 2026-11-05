@@ -35,16 +35,16 @@ class AppCard extends StatelessWidget {
     final inner = accent == null
         ? Padding(padding: padding, child: child)
         : IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Container(width: 5, color: accent),
-                Expanded(
-                  child: Padding(padding: padding, child: child),
-                ),
-              ],
-            ),
-          );
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(width: 5, color: accent),
+          Expanded(
+            child: Padding(padding: padding, child: child),
+          ),
+        ],
+      ),
+    );
     final card = Container(
       margin: margin,
       decoration: BoxDecoration(
@@ -302,15 +302,17 @@ String errText(BuildContext context, Object e) {
     if (e.status == 401) return context.t('err_session');
     return e.message;
   }
-  return context.t('err_generic');
+  // ignore: avoid_print
+  print('ERREUR APP: ${e.runtimeType}: $e');
+  return '${context.t('err_generic')} (${e.runtimeType})';
 }
 
 InputDecoration deco(
-  String label, {
-  String? hint,
-  IconData? icon,
-  String? suffix,
-}) {
+    String label, {
+      String? hint,
+      IconData? icon,
+      String? suffix,
+    }) {
   return InputDecoration(
     labelText: label,
     hintText: hint,
